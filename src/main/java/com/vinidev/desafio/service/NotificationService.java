@@ -14,6 +14,6 @@ public class NotificationService {
     }
 
     public void scheduleNotification(ScheduleNotificationDTO dto) {
-
+        notificationRepository.save(dto.toNotification());
     }
 }
