@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   mysql:
     container_name: 'mysql-magalu'
@@ -8,4 +9,11 @@ services:
       - 'MYSQL_ROOT_PASSWORD=123'
       - 'MYSQL_USER=admin'
     ports:
-      - '3307:3307'
+      - '3307:3306'  # Mapear a porta 3307 do host para a 3306 do contêiner
+    networks:
+      - magalu-network
+    restart: always
+
+networks:
+  magalu-network:
+    driver: bridge
